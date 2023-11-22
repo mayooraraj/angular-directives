@@ -1,0 +1,21 @@
+<div>
+    <button (click)="toggleTable()">Show Table</button>
+    <button (click)="changeStyle()">Change Style</button>
+
+    <table *ngIf="showTable" class="table">
+      <thead>
+        <tr>
+          <th *ngFor="let column of columns" [ngStyle]="getColumnStyle(column)">
+            {{ column }}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of data; let i = index">
+          <td *ngFor="let column of columns" [ngStyle]="getColumnStyle(column)">
+            {{ item[column] }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
